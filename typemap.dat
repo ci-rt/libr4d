@@ -1,0 +1,5 @@
+[
+#if GSOAP_VERSION < 20828
+#pragma GCC diagnostic ignored "-Wunused-parameter"
+#endif
+]

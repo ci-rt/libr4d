@@ -1,0 +1,11 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+pkgincludedir=@includedir@/@PACKAGE@
+
+Name: libr4d
+Description: Linutronix Testrack Infrastructure helper library
+Version: @VERSION@
+Libs: -L${libdir} -lr4d
+Cflags: -I${pkgincludedir}
+Requires: glib-2.0

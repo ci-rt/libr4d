@@ -1,0 +1,6 @@
+Name: libr4d Uninstalled
+Description: Linutronix Testrack Infrastructure helper library, Not Installed
+Version: @VERSION@
+Libs: ${pc_top_builddir}/${pcfiledir}/libr4d.la
+Cflags: -I${pc_top_builddir}/${pcfiledir}
+Requires: glib-2.0

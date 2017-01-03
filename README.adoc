@@ -1,0 +1,56 @@
+libr4d - Linutronix Testrack Infrastructure client library
+==========================================================
+
+The libr4d is a client libraray to communicate with an r4d daemon
+('Remote For Device-under-test') using the SOAP interface.
+
+
+Prerequisite
+------------
+
+Cloning the git repository:
+----
+$ git clone https://github.com/ci-rt/libr4d.git
+----
+
+
+On a Debian Jessie system you can simply run:
+----
+$ sudo apt-get install debhelper dh-autoreconf git gsoap libgsoap-dev uuid-dev libglib2.0-dev
+----
+to satisfy all build dependencies.
+
+
+Build and install libr4d as a Debian package
+--------------------------------------------
+
+The following commands will build an install the libr4d Debain package:
+----
+$ cd libr4d
+$ dpkg-buildpackge
+$ sudo dpkg -i ../libr4d0_*_*.deb
+----
+
+
+Copyright and License
+---------------------
+
+Copyright (C) 2016 Linutronix GmbH
+Author: Benedikt Spranger
+
+libr4d is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License version 2 as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+General Public License for more details.
+
+You should have received a copy of the GNU General Public Licese along
+with this program; if not, write to the Free Software Foundation,
+Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+
+Comments are welcome.
+
+- Benedikt Spranger <b.spranger@linutronix.de>

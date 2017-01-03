@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="r4d" targetNamespace="http://ci-rt.linutronix.de/r4d.wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ci-rt.linutronix.de/r4d.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+    
+	<wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"/>
+	
+
+    
+	<wsdl:types>
+		
+       
+		<xsd:schema elementFormDefault="qualified" targetNamespace="http://ci-rt.linutronix.de/r4d.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+			
+       
+			<xsd:element name="power-change">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="state" type="xsd:boolean"/>
+						<xsd:element name="system" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="power-changeResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="state" type="xsd:boolean"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="list-racks">
+				<xsd:complexType/>
+			</xsd:element>
+			<xsd:element name="list-racksResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="list" type="tns:ArrayOflist-racksResponselist"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="ArrayOflist-racksResponselist">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="list-systems">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="name" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="list-systemsResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="list" type="tns:ArrayOflist-systemsResponselist"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:complexType name="ArrayOflist-systemsResponselist">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="port" type="xsd:int"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="uuid" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="rack" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="location" type="xsd:string"/>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:string"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="power-status">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="system" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="power-statusResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="state" type="xsd:boolean"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="get-serial">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="system" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="get-serialResponse">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="host" type="xsd:string"/>
+						<xsd:element name="port" type="xsd:int"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:schema>
+		
+    
+	</wsdl:types>
+	
+
+
+	<wsdl:message name="power-changeInput">
+		<wsdl:part element="tns:power-change" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="power-changeOutput">
+		<wsdl:part element="tns:power-changeResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="list-racksInput">
+		<wsdl:part element="tns:list-racks" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="list-racksOutput">
+		<wsdl:part element="tns:list-racksResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="list-systemsInput">
+		<wsdl:part element="tns:list-systems" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="list-systemsOutput">
+		<wsdl:part element="tns:list-systemsResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="power-statusInput">
+		<wsdl:part element="tns:power-status" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="power-statusOutput">
+		<wsdl:part element="tns:power-statusResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="get-serialInput">
+		<wsdl:part element="tns:get-serial" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="get-serialOutput">
+		<wsdl:part element="tns:get-serialResponse" name="parameters"/>
+	</wsdl:message>
+	<wsdl:portType name="r4dPortType">
+		<wsdl:operation name="power-change">
+			<wsdl:documentation>Change Power Status</wsdl:documentation>
+			<wsdl:input message="tns:power-changeInput"/>
+			<wsdl:output message="tns:power-changeOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="list-racks">
+			<wsdl:documentation>list Testracks</wsdl:documentation>
+			<wsdl:input message="tns:list-racksInput"/>
+			<wsdl:output message="tns:list-racksOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="list-systems">
+			<wsdl:documentation>SOAP callback: list Boards</wsdl:documentation>
+			<wsdl:input message="tns:list-systemsInput"/>
+			<wsdl:output message="tns:list-systemsOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="power-status">
+			<wsdl:documentation>Get Testsystem Power Status</wsdl:documentation>
+			<wsdl:input message="tns:power-statusInput"/>
+			<wsdl:output message="tns:power-statusOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="get-serial">
+			<wsdl:documentation>Get Serialcontrol</wsdl:documentation>
+			<wsdl:input message="tns:get-serialInput"/>
+			<wsdl:output message="tns:get-serialOutput"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="r4dBinding" type="tns:r4dPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="power-change">
+			<soap:operation soapAction="http://localhost:8008/power-change" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="list-racks">
+			<soap:operation soapAction="http://localhost:8008/list-racks" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="list-systems">
+			<soap:operation soapAction="http://localhost:8008/list-systems" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="power-status">
+			<soap:operation soapAction="http://localhost:8008/power-status" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="get-serial">
+			<soap:operation soapAction="http://localhost:8008/get-serial" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="r4dService">
+		<wsdl:documentation></wsdl:documentation>
+		<wsdl:port binding="tns:r4dBinding" name="r4d">
+			<soap:address location="http://localhost:8008/"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
