@@ -8,8 +8,8 @@ r4d_client_CFLAGS = -g -O2 -Wall -Wextra -Werror -I$(top_srcdir) \
 r4d_client_LDADD = libr4d.la @GLIB_LIBS@ @UUID_LIBS@
 
 lib_LTLIBRARIES = libr4d.la
-libr4d_la_SOURCES = r4d.c r4d_intern.h power.c systems.c\
-	auto-gen/soapC.c auto-gen/soapClient.c auto-gen/soapH.h \
+libr4d_la_SOURCES = r4d.c r4d_intern.h power.c systems.c
+nodist_libr4d_la_SOURCES = auto-gen/soapC.c auto-gen/soapClient.c auto-gen/soapH.h \
 	auto-gen/r4dBinding.nsmap
 libr4d_la_CFLAGS = -g -O2 -Wall -Wextra -Werror -DDEBUG \
 	@GLIB_CFLAGS@ @GSOAP_CFLAGS@ @UUID_CFLAGS@
@@ -36,8 +36,7 @@ BUILT_SOURCES = auto-gen/r4dBinding.nsmap \
 
 CLEANFILES = $(BUILT_SOURCES)
 
-EXTRA_DIST = $(BUILT_SOURCES) libr4d.pc.in libr4d-uninstalled.pc.in \
-	typemap.dat
+EXTRA_DIST = libr4d.pc.in libr4d-uninstalled.pc.in typemap.dat r4d.wsdl
 
 nobase_pkginclude_HEADERS = r4d.h
 
@@ -48,12 +47,12 @@ auto-gen/r4dBinding.nsmap auto-gen/soapC.c auto-gen/soapClient.c \
 auto-gen/soapClientLib.c auto-gen/soapH.h auto-gen/soapStub.h: auto-gen/r4d.h
 	soapcpp2 -x -s -c -C -d auto-gen $<
 
-r4d.wsdl:
+$(srcdir)/r4d.wsdl:
 	wget -O $@ http://localhost:8008/
 
 auto-gen/r4d.h:
 	mkdir -p auto-gen
-	wsdl2h -v -c -t typemap.dat -o $@ r4d.wsdl
+	wsdl2h -v -c -t $(srcdir)/typemap.dat -o $@ $(srcdir)/r4d.wsdl
 
 dist-hook:
 	@if test -d "$(srcdir)/.git"; \
