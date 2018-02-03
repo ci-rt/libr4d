@@ -36,7 +36,8 @@ BUILT_SOURCES = auto-gen/r4dBinding.nsmap \
 
 CLEANFILES = $(BUILT_SOURCES)
 
-EXTRA_DIST = libr4d.pc.in libr4d-uninstalled.pc.in typemap.dat r4d.wsdl
+EXTRA_DIST = libr4d.pc.in libr4d-uninstalled.pc.in typemap.dat r4d.wsdl \
+	README.adoc
 
 nobase_pkginclude_HEADERS = r4d.h
 
@@ -46,6 +47,10 @@ pkgconfig_DATA = libr4d.pc
 auto-gen/r4dBinding.nsmap auto-gen/soapC.c auto-gen/soapClient.c \
 auto-gen/soapClientLib.c auto-gen/soapH.h auto-gen/soapStub.h: auto-gen/r4d.h
 	soapcpp2 -x -s -c -C -d auto-gen $<
+
+README: README.adoc
+	a2x -f text $<
+	mv README.text README
 
 $(srcdir)/r4d.wsdl:
 	wget -O $@ http://localhost:8008/

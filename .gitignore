@@ -20,6 +20,7 @@ ABOUT-NLS
 ChangeLog
 Makefile
 Makefile.in
+README
 aclocal.m4
 compile
 config.guess
