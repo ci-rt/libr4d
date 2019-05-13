@@ -9,11 +9,16 @@ r4d_client_LDADD = libr4d.la @GLIB_LIBS@ @UUID_LIBS@
 
 lib_LTLIBRARIES = libr4d.la
 libr4d_la_SOURCES = r4d.c r4d_intern.h power.c systems.c
-nodist_libr4d_la_SOURCES = auto-gen/soapC.c auto-gen/soapClient.c auto-gen/soapH.h \
-	auto-gen/r4dBinding.nsmap
 libr4d_la_CFLAGS = -g -O2 -Wall -Wextra -Werror -DDEBUG \
 	@GLIB_CFLAGS@ @GSOAP_CFLAGS@ @UUID_CFLAGS@
-libr4d_la_LIBADD = @GLIB_LIBS@ @GSOAP_LIBS@ @UUID_LIBS@
+libr4d_la_LIBADD = libr4dsoap.la @GLIB_LIBS@ @UUID_LIBS@
+
+noinst_LTLIBRARIES = libr4dsoap.la
+nodist_libr4dsoap_la_SOURCES = auto-gen/soapC.c auto-gen/soapClient.c \
+	auto-gen/soapH.h auto-gen/r4dBinding.nsmap
+libr4dsoap_la_CFLAGS = -g -O2 -Wall -Wextra -Werror @GSOAP_CFLAGS@
+libr4dsoap_la_LDFLAGS = -static
+libr4dsoap_la_LIBADD = @GSOAP_LIBS@
 
 # 1) If the library source code has changed at all since the last update, then
 #    increment revision ("c:r:a" becomes "c:r+1:a").
