@@ -85,4 +85,37 @@ int r4d_power_status (const gchar *endpoint, const gchar *name)
 	return status;
 }
 
+/**
+ * graceful shutdown of a testsystem
+ * @param endpoint URL of r4d daemon SOAP endpoint
+ * @param name testsystem name
+ * @returns 0 or -1 on failure
+ */
+int r4d_shutdown (const gchar *endpoint, const gchar *name)
+{
+	struct soap *soap = soap_new ();
+	struct _ns1__shutdown req;
+	struct _ns1__shutdownResponse resp;
+	int ret = -1;
+
+	if (!name)
+		return -1;
+
+	req.system = g_strdup (name);
+
+	ret = soap_call___ns1__shutdown (soap, endpoint, NULL,
+					 &req, &resp);
+	if (ret == SOAP_OK)
+		ret = 0;
+	else
+		soap_print_fault (soap, stderr);
+
+	g_free (req.system);
+	soap_destroy (soap);
+	soap_end (soap);
+	soap_free (soap);
+
+	return ret;
+}
+
 /** @} */

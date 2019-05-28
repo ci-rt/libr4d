@@ -21,4 +21,6 @@ gchar **r4d_list_systems (const gchar *endpoint);
 struct r4d_systemid **r4d_list_systemids (const gchar *endpoint, const gchar *name);
 gchar **r4d_list_uuids (const gchar *endpoint);
 
+int r4d_shutdown (const gchar *endpoint, const gchar *name);
+
 #endif /* __R4D_H__ */
