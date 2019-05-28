@@ -94,6 +94,16 @@
 					</xsd:all>
 				</xsd:complexType>
 			</xsd:element>
+			<xsd:element name="shutdown">
+				<xsd:complexType>
+					<xsd:all>
+						<xsd:element name="system" type="xsd:string"/>
+					</xsd:all>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="shutdownResponse">
+				<xsd:complexType/>
+			</xsd:element>
 		</xsd:schema>
 		
     
@@ -131,6 +141,12 @@
 	<wsdl:message name="get-serialOutput">
 		<wsdl:part element="tns:get-serialResponse" name="parameters"/>
 	</wsdl:message>
+	<wsdl:message name="shutdownInput">
+		<wsdl:part element="tns:shutdown" name="parameters"/>
+	</wsdl:message>
+	<wsdl:message name="shutdownOutput">
+		<wsdl:part element="tns:shutdownResponse" name="parameters"/>
+	</wsdl:message>
 	<wsdl:portType name="r4dPortType">
 		<wsdl:operation name="power-change">
 			<wsdl:documentation>Change Power Status</wsdl:documentation>
@@ -156,6 +172,11 @@
 			<wsdl:documentation>Get Serialcontrol</wsdl:documentation>
 			<wsdl:input message="tns:get-serialInput"/>
 			<wsdl:output message="tns:get-serialOutput"/>
+		</wsdl:operation>
+		<wsdl:operation name="shutdown">
+			<wsdl:documentation>Shutdown system by Magic-Sys-Request</wsdl:documentation>
+			<wsdl:input message="tns:shutdownInput"/>
+			<wsdl:output message="tns:shutdownOutput"/>
 		</wsdl:operation>
 	</wsdl:portType>
 	<wsdl:binding name="r4dBinding" type="tns:r4dPortType">
@@ -198,6 +219,15 @@
 		</wsdl:operation>
 		<wsdl:operation name="get-serial">
 			<soap:operation soapAction="http://localhost:8008/get-serial" style="document"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="shutdown">
+			<soap:operation soapAction="http://localhost:8008/shutdown" style="document"/>
 			<wsdl:input>
 				<soap:body use="literal"/>
 			</wsdl:input>
