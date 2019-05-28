@@ -1,0 +1,20 @@
+libr4d (1.2-1) unstable; urgency=medium
+  * Add package description
+  * Fix README - README.adoc handling
+  * Update WSDL and add shutdown support
+
+ -- Benedikt Spranger <b.spranger@linutronix.de>  Sat, 03 Feb 2018 13:26:58 +0100
+
+libr4d (1.1+nmu1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * fix typos in README
+  * update gitignore
+
+ -- Manuel Traut <manut@linutronix.de>  Wed, 10 Jan 2018 12:39:05 +0100
+
+libr4d (1.0) unstable; urgency=medium
+
+  * initial version
+
+ -- Benedikt Spranger <b.spranger@linutronix.de>  Tue, 03 Jan 2017 15:50:14 +0100
