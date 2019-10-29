@@ -52,17 +52,17 @@
 			<xsd:element name="list-systemsResponse">
 				<xsd:complexType>
 					<xsd:all>
-						<xsd:element name="list" type="tns:ArrayOflist-systemsResponselist"/>
+						<xsd:element name="list" type="tns:ArrayOflist-systemsResponselist" minOccurs="0" maxOccurs="unbounded" />
 					</xsd:all>
 				</xsd:complexType>
 			</xsd:element>
 			<xsd:complexType name="ArrayOflist-systemsResponselist">
 				<xsd:sequence>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="port" type="xsd:int"/>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="uuid" type="xsd:string"/>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="rack" type="xsd:string"/>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="location" type="xsd:string"/>
-					<xsd:element maxOccurs="unbounded" minOccurs="0" name="name" type="xsd:string"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="port" type="xsd:int"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="uuid" type="xsd:string"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="rack" type="xsd:string"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="location" type="xsd:string"/>
+					<xsd:element maxOccurs="1" minOccurs="1" name="name" type="xsd:string"/>
 				</xsd:sequence>
 			</xsd:complexType>
 			<xsd:element name="power-status">
