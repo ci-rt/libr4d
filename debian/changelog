@@ -1,3 +1,9 @@
+libr4d (1.3-1) unstable; urgency=medium
+
+  * Consider pysimplesoap array handling
+
+ -- Bastian Germann <bage@linutronix.de>  Sat, 09 Nov 2019 16:55:53 +0100
+
 libr4d (1.2-1) unstable; urgency=medium
   * Add package description
   * Fix README - README.adoc handling
