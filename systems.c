@@ -140,23 +140,23 @@ static struct testsystems *list_sys (const gchar *endpoint, const gchar *name)
 	{
 		list = response.list;
 
-		systems = alloc_testsystems (list->__sizename);
+		systems = alloc_testsystems (response.__sizelist);
 		if (!systems)
 			goto out;
 
-		for (i = 0; i < list->__sizename; i++)
+		for (i = 0; i < response.__sizelist; i++)
 		{
 			gsize len;
 			struct _ns1__get_serialResponse serialResponse;
 			struct _ns1__get_serial get_serial;
-			if (!list->name[i])
+			if (!list[i].name)
 				break;
-			systems->name [i] = g_strdup (list->name[i]);
-			systems->uuid [i] = g_base64_decode (list->uuid[i],
+			systems->name [i] = g_strdup (list[i].name);
+			systems->uuid [i] = g_base64_decode (list[i].uuid,
 							     &len);
 			systems->uuid_len [i] = len;
 			/* retrieve serial connection */
-			get_serial.system = g_strdup (list->name[i]);
+			get_serial.system = g_strdup (list[i].name);
 			ret = soap_call___ns1__get_serial (soap,
 							   endpoint,
 							   NULL,
