@@ -32,8 +32,8 @@
  */
 
 /**
- * get library communication protocoll version
- * @returns library communication protocoll version
+ * get library communication protocol version
+ * @returns library communication protocol version
  */
 int version (void)
 {

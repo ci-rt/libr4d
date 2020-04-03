@@ -24,7 +24,7 @@ to satisfy all build dependencies.
 Build and install libr4d as a Debian package
 --------------------------------------------
 
-The following commands will build an install the libr4d Debian package:
+The following commands will build and install the libr4d Debian package:
 ----
 $ cd libr4d
 $ dpkg-buildpackge

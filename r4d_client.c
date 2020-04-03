@@ -53,7 +53,7 @@ int list_sysids (gchar *endpoint, gchar *name)
 				 r4d_systemid_serial_host (*tmpid), *port);
 
 		g_print ("power: %d\n", r4d_power_status (endpoint, r4d_systemid_name (*tmpid)));
-r4d_power_change (endpoint, r4d_systemid_name (*tmpid), 1);
+		r4d_power_change (endpoint, r4d_systemid_name (*tmpid), 1);
 	}
 	free (sysids);
 

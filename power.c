@@ -18,10 +18,10 @@
  */
 
 /**
- * change powerstate of a testsystem
+ * change power state of a testsystem
  * @param endpoint URL of r4d daemon SOAP endpoint
  * @param name testsystem name
- * @param state new powerstate
+ * @param state new power state
  * @returns 0 or -1 on failure
  */
 int r4d_power_change (const gchar *endpoint, const gchar *name, gboolean state)
@@ -53,10 +53,10 @@ int r4d_power_change (const gchar *endpoint, const gchar *name, gboolean state)
 }
 
 /**
- * get powerstate of a testsystem
+ * get power state of a testsystem
  * @param endpoint URL of r4d daemon SOAP endpoint
  * @param name testsystem name
- * @returns powerstate of a testsystem or -1 on failure
+ * @returns power state of a testsystem or -1 on failure
  */
 int r4d_power_status (const gchar *endpoint, const gchar *name)
 {
@@ -86,7 +86,7 @@ int r4d_power_status (const gchar *endpoint, const gchar *name)
 }
 
 /**
- * graceful shutdown of a testsystem
+ * gracefully shutdown a testsystem
  * @param endpoint URL of r4d daemon SOAP endpoint
  * @param name testsystem name
  * @returns 0 or -1 on failure
