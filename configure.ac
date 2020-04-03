@@ -1,5 +1,5 @@
 dnl Every other copy of the package version number gets its value from here
-AC_INIT(libr4d, 1.3, b.spranger@linutronix.de)
+AC_INIT(libr4d, 1.4, b.spranger@linutronix.de)
 AM_INIT_AUTOMAKE
 AC_USE_SYSTEM_EXTENSIONS
 
