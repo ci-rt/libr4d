@@ -4,13 +4,13 @@ Upstream-Contact: Benedikt Spranger <b.spranger@linutronix.de>
 
 Files: *
 Copyright: 2016 Linutronix GmbH
-License: GPL-2.0
+License: GPL-2.0 with OpenSSL exception
 
 Files: debian/*
 Copyright: 2016, 2020 Linutronix GmbH
-License: GPL-2.0
+License: GPL-2.0 with OpenSSL exception
 
-License: GPL-2.0
+License: GPL-2.0 with OpenSSL exception
  This package is free software; you can redistribute it and/or modify
  it under the terms of the GNU General Public License version 2 as
  published by the Free Software Foundation.
@@ -25,3 +25,15 @@ License: GPL-2.0
  .
  On Debian systems, the complete text of the GNU General
  Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".
+ .
+ Special exception for linking with OpenSSL:
+ .
+ In addition, as a special exception, the author gives
+ permission to link the code of this program with the OpenSSL
+ library (or with modified versions of OpenSSL that use the same
+ license as OpenSSL), and distribute linked combinations including
+ the two.  You must obey the GNU General Public License in all
+ respects for all of the code used other than OpenSSL.  If you modify
+ this program, you may extend this exception to your version of the
+ program, but you are not obligated to do so.  If you do not wish to
+ do so, delete this exception statement from your version.
