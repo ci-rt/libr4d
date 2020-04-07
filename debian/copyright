@@ -1,12 +1,13 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: libr4d
+Upstream-Contact: Benedikt Spranger <b.spranger@linutronix.de>
 
 Files: *
-Copyright: 2016 Linutronix GmbH Benedikt Spranger <b.spranger@linutronix.de>
+Copyright: 2016 Linutronix GmbH
 License: GPL-2.0
 
 Files: debian/*
-Copyright: 2016 Linutronix GmbH Benedikt Spranger <b.spranger@linutronix.de>
+Copyright: 2016, 2020 Linutronix GmbH
 License: GPL-2.0
 
 License: GPL-2.0
