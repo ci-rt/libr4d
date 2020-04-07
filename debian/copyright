@@ -1,4 +1,5 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/ci-rt/libr4d
 Upstream-Name: libr4d
 Upstream-Contact: Benedikt Spranger <b.spranger@linutronix.de>
 
