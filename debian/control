@@ -1,7 +1,7 @@
 Source: libr4d
 Priority: optional
 Maintainer: Bastian Germann <bage@linutronix.de>
-Build-Depends: debhelper-compat (= 12), git, gsoap, libgsoap-dev, uuid-dev, libglib2.0-dev
+Build-Depends: debhelper-compat (= 13), git, gsoap, libgsoap-dev, uuid-dev, libglib2.0-dev
 Standards-Version: 4.5.0
 Section: libs
 Rules-Requires-Root: no
