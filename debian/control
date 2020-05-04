@@ -13,25 +13,23 @@ Package: libr4d-dev
 Section: libdevel
 Architecture: any
 Depends: libr4d0 (= ${binary:Version}), ${misc:Depends}
-Description: Linutronix Testrack Helper Library (development files)
+Description: Remote For Device-under-test Helper Library (development files)
  Remote For Device-under-test (R4D) Daemon acts as controlling server for test
  racks.
  Each rack must contain a serial device server and a power control switch.
- A rack can host several DUTs (device-under-test).
- R4D connects to the serial device server and the power switch to perform
- actions on user requests. A user connects to r4d through a SOAP interface.
+ libr4d connects to a R4D Daemon via a SOAP interface to control the connected
+ device-under-test.
  .
- This package contains the development files for the C-Bindings.
+ This package contains the C library's development files.
 
 Package: libr4d0
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Linutronix Testrack Helper Library
+Description: Remote For Device-under-test Helper Library
  Remote For Device-under-test (R4D) Daemon acts as controlling server for test
  racks.
  Each rack must contain a serial device server and a power control switch.
- A rack can host several DUTs (device-under-test).
- R4D connects to the serial device server and the power switch to perform
- actions on user requests. A user connects to r4d through a SOAP interface.
+ libr4d connects to a R4D Daemon via a SOAP interface to control the connected
+ device-under-test.
  .
- This package contains C-Binding library files.
+ This package contains the C library files.
